@@ -40,8 +40,7 @@ The application provides employee management, department management, authenticat
 - Add Department
 - Edit Department
 - Delete Department
-- View Departments
-- Search Department
+- View Department
 
 ---
 
