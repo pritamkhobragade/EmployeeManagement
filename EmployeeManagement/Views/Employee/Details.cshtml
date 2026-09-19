@@ -1,0 +1,82 @@
+﻿
+@model EmployeeManagement.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<h2>Employee Details</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <td>@Model.Emp_ID</td>
+    </tr>
+
+    <tr>
+        <th>Name</th>
+        <td>@Model.Name</td>
+    </tr>
+
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+
+    <tr>
+        <th>Mobile</th>
+        <td>@Model.Mobile</td>
+    </tr>
+
+    <tr>
+        <th>Gender</th>
+        <td>@Model.Gender</td>
+    </tr>
+
+    <tr>
+        <th>Age</th>
+        <td>@Model.Age</td>
+    </tr>
+
+    <tr>
+        <th>Position</th>
+        <td>@Model.Position</td>
+    </tr>
+
+    <tr>
+        <th>Department</th>
+        <td>@Model.Department.DepartmentName</td>
+    </tr>
+
+    <tr>
+        <th>Salary</th>
+        <td>₹ @Model.Salary</td>
+    </tr>
+
+    <tr>
+        <th>Joining Date</th>
+        <td>
+            @Model.JoiningDate.ToString("dd-MM-yyyy")
+        </td>
+    </tr>
+
+    <tr>
+        <th>Status</th>
+        <td>@Model.Status</td>
+    </tr>
+
+</table>
+
+<a href="@Url.Action("Edit",
+    new { id = Model.Emp_ID })"
+   class="btn btn-warning">
+    Edit
+</a>
+
+<a href="@Url.Action("Index")"
+   class="btn btn-secondary">
+    Back
+</a>

@@ -1,0 +1,67 @@
+﻿@model EmployeeManagement.Models.Department
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<h2>Create Department</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(
+        true,
+        "",
+        new { @class = "text-danger" }
+    )
+
+    <div class="form-group mb-3">
+
+        @Html.LabelFor(
+            model => model.DepartmentName)
+
+        @Html.TextBoxFor(
+            model => model.DepartmentName,
+            new
+            {
+                @class = "form-control",
+                placeholder = "Enter department name"
+            })
+
+        @Html.ValidationMessageFor(
+            model => model.DepartmentName,
+            "",
+            new { @class = "text-danger" })
+
+    </div>
+
+
+    <div class="form-group mb-3">
+
+        @Html.LabelFor(
+            model => model.Description)
+
+        @Html.TextAreaFor(
+            model => model.Description,
+            new
+            {
+                @class = "form-control",
+                rows = "4",
+                placeholder = "Enter description"
+            })
+
+    </div>
+
+
+    <button type="submit"
+            class="btn btn-success">
+        Save
+    </button>
+
+    <a href="@Url.Action("Index")"
+       class="btn btn-secondary">
+        Cancel
+    </a>
+}

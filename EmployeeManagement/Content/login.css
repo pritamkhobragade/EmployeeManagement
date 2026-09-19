@@ -1,0 +1,578 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy-950: #020617;
+    --navy-900: #0f172a;
+    --navy-800: #1e293b;
+    --blue-900: #1e3a8a;
+    --blue-700: #1d4ed8;
+    --blue-500: #3b82f6;
+    --blue-400: #60a5fa;
+    --sky-400: #38bdf8;
+    --line: rgba(148, 163, 184, .18);
+    --text-dim: rgba(226, 232, 240, .55);
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--navy-950);
+}
+
+
+/* =========================
+   MAIN BACKGROUND
+========================= */
+
+.page-wrap {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    overflow: hidden;
+    background: radial-gradient( 1100px 500px at 85% -10%, rgba(29, 78, 216, .28), transparent 60% ), radial-gradient( 900px 500px at -10% 110%, rgba(56, 189, 248, .16), transparent 60% ), linear-gradient( 180deg, var(--navy-900), var(--navy-950) );
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.grid-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: .5;
+    background-image: linear-gradient( rgba(148, 163, 184, .05) 1px, transparent 1px ), linear-gradient( 90deg, rgba(148, 163, 184, .05) 1px, transparent 1px );
+    background-size: 46px 46px;
+    mask-image: radial-gradient( ellipse 70% 60% at 50% 45%, #000 30%, transparent 75% );
+}
+
+
+/* =========================
+   ORBS
+========================= */
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .4;
+    z-index: 0;
+    animation: float 14s ease-in-out infinite;
+}
+
+    .orb.a {
+        width: 420px;
+        height: 420px;
+        background: var(--blue-700);
+        top: -140px;
+        right: -120px;
+    }
+
+    .orb.b {
+        width: 320px;
+        height: 320px;
+        background: var(--sky-400);
+        bottom: -110px;
+        left: -100px;
+        opacity: .25;
+        animation-delay: -5s;
+    }
+
+    .orb.c {
+        width: 240px;
+        height: 240px;
+        background: var(--blue-500);
+        bottom: 25%;
+        left: 32%;
+        opacity: .18;
+        animation-delay: -9s;
+    }
+
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-40px);
+    }
+}
+
+
+/* =========================
+   SCENE
+========================= */
+
+.scene {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    perspective: 1200px;
+}
+
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.login-card {
+    position: relative;
+    width: 420px;
+    max-width: 100%;
+    padding: 38px 36px 32px;
+    border-radius: 24px;
+    background: linear-gradient( 180deg, rgba(148, 163, 184, .10), rgba(148, 163, 184, .04) );
+    border: 1px solid var(--line);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 50px 100px -20px rgba(2, 6, 23, .8), inset 0 1px 0 rgba(255, 255, 255, .08);
+    transform-style: preserve-3d;
+    transition: transform .15s ease;
+}
+
+
+/* =========================
+   CARD GLOW
+========================= */
+
+.glow {
+    position: absolute;
+    inset: -4px;
+    z-index: -1;
+    border-radius: 28px;
+    background: linear-gradient( 135deg, var(--blue-900), var(--blue-500), var(--sky-400) );
+    filter: blur(50px);
+    opacity: .35;
+    animation: pulse 6s ease-in-out infinite;
+}
+
+
+@keyframes pulse {
+
+    0%, 100% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: .6;
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.login-header {
+    text-align: center;
+    color: white;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 16px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient( 135deg, var(--blue-700), var(--blue-500) 55%, var(--sky-400) );
+    box-shadow: 0 18px 40px -8px rgba(59, 130, 246, .55), inset 0 1px 0 rgba(255, 255, 255, .4);
+    animation: logoFloat 5s ease-in-out infinite;
+}
+
+
+    .logo svg {
+        width: 36px;
+        height: 36px;
+        stroke: white;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+
+@keyframes logoFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================
+   HEADER TEXT
+========================= */
+
+.login-header h1 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+
+.login-header p {
+    margin-top: 7px;
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+
+/* =========================
+   SECURE TAG
+========================= */
+
+.secure-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 6px 14px;
+    font-size: 11px;
+    color: var(--blue-400);
+    background: rgba(59, 130, 246, .12);
+    border: 1px solid rgba(59, 130, 246, .25);
+    border-radius: 999px;
+}
+
+
+    .secure-tag svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--blue-400);
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+
+/* =========================
+   FORM
+========================= */
+
+#loginForm {
+    margin-top: 28px;
+}
+
+
+/* =========================
+   FIELD
+========================= */
+
+.field {
+    margin-bottom: 18px;
+}
+
+
+    .field label {
+        display: block;
+        margin-bottom: 8px;
+        padding-left: 2px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #cbd5e1;
+    }
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-wrap {
+    display: flex;
+    align-items: center;
+    height: 52px;
+    padding: 0 15px;
+    background: rgba(15, 23, 42, .55);
+    border: 1.5px solid var(--line);
+    border-radius: 13px;
+    transition: border-color .3s, box-shadow .3s, background .3s;
+}
+
+
+    .input-wrap:focus-within {
+        border-color: var(--blue-400);
+        background: rgba(30, 58, 138, .25);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, .18);
+    }
+
+
+    .input-wrap .ico {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        stroke: #94a3b8;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+
+    .input-wrap:focus-within .ico {
+        stroke: var(--blue-400);
+    }
+
+
+    .input-wrap input {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        padding: 0 12px;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: #f1f5f9;
+        font-size: 14px;
+    }
+
+
+        .input-wrap input::placeholder {
+            color: rgba(148, 163, 184, .45);
+        }
+
+
+/* =========================
+   PASSWORD EYE
+========================= */
+
+.eye {
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+
+    .eye svg {
+        width: 19px;
+        height: 19px;
+        stroke: #94a3b8;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+
+    .eye:hover svg {
+        stroke: var(--blue-400);
+    }
+
+
+/* =========================
+   ROW
+========================= */
+
+.login-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 2px 22px;
+    font-size: 12px;
+}
+
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+
+    .remember input {
+        width: 15px;
+        height: 15px;
+        accent-color: var(--blue-500);
+    }
+
+
+.forgot {
+    color: var(--blue-400);
+    text-decoration: none;
+}
+
+
+    .forgot:hover {
+        color: var(--sky-400);
+    }
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-btn {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    background: linear-gradient( 135deg, var(--blue-900), var(--blue-700), var(--blue-500), var(--sky-400) );
+    background-size: 200% 200%;
+    box-shadow: 0 18px 38px -10px rgba(37, 99, 235, .65);
+    transition: .3s;
+}
+
+
+    .login-btn:hover {
+        background-position: 100% 0;
+        transform: translateY(-2px);
+        box-shadow: 0 24px 48px -12px rgba(37, 99, 235, .8);
+    }
+
+
+    .login-btn:disabled {
+        cursor: not-allowed;
+        opacity: .7;
+    }
+
+
+/* =========================
+   ERROR
+========================= */
+
+.login-error {
+    margin-top: 15px;
+    font-size: 13px;
+    border-radius: 10px;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0 15px;
+    color: #64748b;
+    font-size: 11px;
+    text-align: center;
+}
+
+
+    .divider::before,
+    .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+    }
+
+
+/* =========================
+   CORPORATE TEXT
+========================= */
+
+.corporate-text {
+    text-align: center;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   SIGNUP
+========================= */
+
+.signup {
+    margin-top: 23px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+
+    .signup a {
+        color: var(--blue-400);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+
+        .signup a:hover {
+            color: var(--sky-400);
+        }
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .page-wrap {
+        padding: 12px;
+        overflow: auto;
+    }
+
+    .login-card {
+        padding: 28px 18px 24px;
+        border-radius: 20px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+        .logo svg {
+            width: 29px;
+            height: 29px;
+        }
+
+    .login-header h1 {
+        font-size: 20px;
+    }
+
+    .input-wrap {
+        height: 48px;
+    }
+
+    .login-btn {
+        height: 50px;
+    }
+
+    .login-row {
+        font-size: 11px;
+    }
+}

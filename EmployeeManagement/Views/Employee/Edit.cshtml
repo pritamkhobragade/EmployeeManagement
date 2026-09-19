@@ -1,0 +1,62 @@
+﻿
+@model EmployeeManagement.Models.Employee
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.Emp_ID)
+
+    @Html.TextBoxFor(x => x.Name,
+        new { @class = "form-control" })
+
+    @Html.TextBoxFor(x => x.Email,
+        new { @class = "form-control" })
+
+    @Html.TextBoxFor(x => x.Mobile,
+        new { @class = "form-control" })
+
+    @Html.TextBoxFor(x => x.Age,
+        new { @class = "form-control" })
+
+    @Html.TextBoxFor(x => x.Position,
+        new { @class = "form-control" })
+
+    @Html.DropDownList(
+        "DepartmentId",
+        null,
+        "Select Department",
+        new { @class = "form-control" })
+
+    @Html.TextBoxFor(x => x.Salary,
+        new { @class = "form-control" })
+
+    @Html.TextBoxFor(
+        x => x.JoiningDate,
+        "{0:yyyy-MM-dd}",
+        new
+        {
+            @class = "form-control",
+            type = "date"
+        })
+
+    @Html.DropDownListFor(
+        x => x.Status,
+        new SelectList(
+            new[] { "Active", "Inactive" }
+        ),
+        "Select Status",
+        new { @class = "form-control" })
+
+    <br />
+
+    <button type="submit"
+            class="btn btn-primary">
+        Update Employee
+    </button>
+}

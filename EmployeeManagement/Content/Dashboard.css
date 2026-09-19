@@ -1,0 +1,51 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #f5f6fa;
+}
+
+.dashboard {
+    padding-top: 20px;
+}
+
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 120px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+    .dashboard-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+.card-icon {
+    float: left;
+    font-size: 35px;
+    margin-right: 20px;
+    padding-top: 10px;
+}
+
+.card-content h3 {
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.card-content p {
+    color: #777;
+    margin-bottom: 0;
+}
+
+.panel {
+    border-radius: 6px;
+}
+
+.btn {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

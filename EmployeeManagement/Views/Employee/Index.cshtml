@@ -1,0 +1,156 @@
+﻿@model IEnumerable<EmployeeManagement.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between mb-3">
+
+        <h2>Employees</h2>
+
+        <a href="@Url.Action("Create")"
+           class="btn btn-primary">
+            Add Employee
+        </a>
+
+    </div>
+
+
+    <!-- Search -->
+
+    @using (Html.BeginForm("Index", "Employee",
+        FormMethod.Get))
+    {
+        <div class="row mb-3">
+
+            <div class="col-md-4">
+
+                <input type="text"
+                       name="search"
+                       value="@Request.QueryString["search"]"
+                       class="form-control"
+                       placeholder="Search employee..." />
+
+            </div>
+
+            <div class="col-md-2">
+
+                <button type="submit"
+                        class="btn btn-dark">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+    }
+
+
+    <!-- Employee Table -->
+
+    <table class="table table-bordered
+                  table-striped">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Mobile</th>
+
+                <th>Position</th>
+
+                <th>Department</th>
+
+                <th>Salary</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @item.Emp_ID
+                    </td>
+
+                    <td>
+                        @item.Name
+                    </td>
+
+                    <td>
+                        @item.Email
+                    </td>
+
+                    <td>
+                        @item.Mobile
+                    </td>
+
+                    <td>
+                        @item.Position
+                    </td>
+
+                    <td>
+                        @item.Department.DepartmentName
+                    </td>
+
+                    <td>
+                        ₹ @item.Salary
+                    </td>
+
+                    <td>
+                        @item.Status
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink(
+                            "Details",
+                            "Details",
+                            new { id = item.Emp_ID },
+                            new { @class = "btn btn-info btn-sm" }
+                        )
+
+                        @Html.ActionLink(
+                            "Edit",
+                            "Edit",
+                            new { id = item.Emp_ID },
+                            new { @class = "btn btn-warning btn-sm" }
+                        )
+
+                        @Html.ActionLink(
+                            "Delete",
+                            "Delete",
+                            new { id = item.Emp_ID },
+                            new { @class = "btn btn-danger btn-sm" }
+                        )
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

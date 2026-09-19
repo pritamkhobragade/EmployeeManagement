@@ -1,0 +1,49 @@
+﻿@model EmployeeManagement.Models.Department
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<h2>Department Details</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Department ID</th>
+
+        <td>
+            @Model.DepartmentId
+        </td>
+    </tr>
+
+    <tr>
+        <th>Department Name</th>
+
+        <td>
+            @Model.DepartmentName
+        </td>
+    </tr>
+
+    <tr>
+        <th>Description</th>
+
+        <td>
+            @Model.Description
+        </td>
+    </tr>
+
+</table>
+
+
+<a href="@Url.Action(
+    "Edit",
+    new { id = Model.DepartmentId })"
+   class="btn btn-warning">
+    Edit
+</a>
+
+<a href="@Url.Action("Index")"
+   class="btn btn-secondary">
+    Back
+</a>
