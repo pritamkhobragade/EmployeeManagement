@@ -101,6 +101,17 @@ EmployeeManagementSystem
 └── EmployeeManagementSystem.sln
 
 ---
+## 🔐 Demo Login Credentials
+
+| Field | Value |
+|---|---|
+| Username / Email | `admin@gmail.com` |
+| Password | `Admin@123` |
+| Role | Admin |
+
+
+---
+
 
 
 📸 Screenshots
