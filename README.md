@@ -99,3 +99,21 @@ EmployeeManagementSystem
 ├── App_Start
 ├── Web.config
 └── EmployeeManagementSystem.sln
+
+---
+
+
+📸 Screenshots
+Login Page
+<img width="1600" height="799" alt="image" src="https://github.com/user-attachments/assets/189e2b54-30ed-4901-bc2f-0d955011f78a" />
+
+
+Dashboard
+<img width="1600" height="721" alt="WhatsApp Image 2026-09-19 at 11 20 58 AM (1)" src="https://github.com/user-attachments/assets/a03c4608-5331-4c26-a7c4-45e3f71c8bcb" />
+
+Employee Management
+<img width="1600" height="756" alt="WhatsApp Image 2026-09-19 at 11 20 58 AM (2)" src="https://github.com/user-attachments/assets/181ada71-b4f5-4851-90d5-9e38c7dbfea5" />
+
+Department Management
+<img width="1600" height="546" alt="WhatsApp Image 2026-09-19 at 11 20 58 AM" src="https://github.com/user-attachments/assets/3a94efc8-3164-4f6e-842f-efbae5c644ce" />
+
